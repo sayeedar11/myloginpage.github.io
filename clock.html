@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clock</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #848a90;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .main{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: #848a90;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.059),-2px -2px 4px rgba(255, 255, 255, 0.112);
+        }
+        .main .clock{
+            position: absolute;
+            width: 95%;
+            height: 95%;
+            background-color: #848a90;
+            border-radius: 500%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow:inset 5px 5px 10px rgba(0, 0, 0, 0.146),inset -10px -10px 20px rgba(255, 255, 255, 0.272);
+        }
+        .main .clock .pic{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: #848a90;
+            box-shadow:inset 5px 5px 10px rgba(0, 0, 0, 0.114),inset -10px -10px 20px rgba(255, 255, 255, 0.194);
+        }
+        .main .clock .pic img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .main .clock .hour{
+            position: absolute;
+            width:5px;
+            height:80px;
+            border-radius: 10px;
+            background-color: rgb(111, 83, 119);
+            transform-origin: bottom;
+            transform: translatey(-50%);
+            animation:hour 43200s linear infinite;
+        }
+        @keyframes hour{
+            0%{
+                transform: translatey(-50%) rotatez(0deg);
+            }
+            100%{
+                transform: translatey(-50%) rotatez(360deg);
+            }
+        }
+
+        /* .main .clock .hour::before{
+            content: '';
+            position: absolute;
+            width:14px;
+            height:14px;
+            border-radius: 50%;
+            background-color: gray;
+            left: -5px;
+            top: 30px;
+
+        }
+        .main .clock .hour::after{
+            content: '';
+            position: absolute;
+            width:20px;
+            height:20px;
+            border-radius: 50%;
+            background-color: gray;
+            left: -7.5px;
+            top: 43px;
+
+        } */
+        .main .clock .minute{
+            position: absolute;
+            width:3px;
+            height:110px;
+            border-radius: 30px;
+            background-color: rgb(40, 57, 42);
+            transform-origin: bottom;
+            transform: translatey(-50%) rotate(45deg);
+            animation: minute 3600s linear infinite;
+        }
+        @keyframes minute{
+            0%{
+                transform: translatey(-50%) rotatez(0deg);
+            }
+            100%{
+                transform: translatey(-50%) rotatez(360deg);
+            }
+        }
+
+        /* .main .clock .minute::before{
+            content: '';
+            position: absolute;
+            width:8px;
+            height:50px;
+            border-radius: 10%;
+            background-color: gray;
+            left: -2px;
+            top: 30px;
+
+        }
+        .main .clock .minute::after{
+            content: '';
+            position: absolute;
+            width:10px;
+            height:10px;
+            border-radius: 30%;
+            background-color: gray;
+            left: -3px;
+            top: 75px;
+
+        } */
+        .main .clock .sec{
+            position: absolute;
+            width:1.9px;
+            height:150px;
+            border-radius: 50px;
+            background-color: rgb(90, 54, 54);
+            transform-origin: bottom;
+            transform: translatey(-50%) rotate(90deg);
+            animation:sec 60s linear infinite;
+        }
+        @keyframes sec{
+            0%{
+                transform: translatey(-50%) rotatez(0deg);
+            }
+            100%{
+                transform: translatey(-50%) rotatez(360deg);
+            }
+        }
+        .main .clock .sec::before{
+            content: '';
+            position: absolute;
+            bottom: -7px;
+            left: -7px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: black;
+            z-index: 3;
+        }
+        .main .clock .pic img:nth-child(2){
+            filter:drop-shadow( 2px 2px 4px rgba(0, 0, 0, 0.267))
+            drop-shadow( -2px -2px 4px rgba(255, 255, 255, 0.212));
+            top: 150px;
+            left: 50px;
+            width: 200px;
+            height: 200px;
+        }
+        .main .clock .pic h1{
+            position: absolute;
+            text-transform: uppercase;
+            font-family: sans-serif;
+            font-size: 1.5em;
+            font-weight: 900;
+            bottom: 80px;
+            right: 100px;
+            color: #848a90;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.313),-2px -2px 4px rgba(255, 255, 255, 0.228); ;
+        }
+        .main .clock .pic h2{
+            position: absolute;
+            text-transform: uppercase;
+            font-family: sans-serif;
+            font-size: 1.5em;
+            font-weight: 900;
+            top: 100px;
+            right: 115px;
+            color: #848a90;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.311),-2px -2px 4px rgba(255, 255, 255, 0.171); ;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="clock">
+            <div class="pic">
+                <img src="clock2.png" alt="">
+                <img src="feather2.png" alt="">
+                <h1>feather</h1>
+                <h2>sayeed ar</h2>
+                <!-- <div class="hour"></div>
+                <div class="minute"></div>
+                <div class="sec"></div> -->
+            </div>
+            <div class="hour"></div>
+            <div class="minute"></div>
+            <div class="sec"></div>
+        </div>
+    </div>
+</body>
+</html>
